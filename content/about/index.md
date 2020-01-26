@@ -1,17 +1,15 @@
 ---
 title: "About"
-date: 2020-1-23T00:33:23+08:00
+date: 2020-1-23
 lastmod: 2020-1-23T00:33:23+08:00
-menu: "main"
-weight: 50
 comment: false
 mathjax: false
 ---
 
 
-# <center>名宠有主，请勿靠近</center>
+## <center>名宠有主，请勿靠近</center>
 
----
+
 人在上海，有主
 
 在第一印象不好的人面前很高冷

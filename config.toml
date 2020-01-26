@@ -27,9 +27,9 @@ PygmentsOptions = "linenos=table"
 #  category = "categories"
 
 # language support # en / zh-cn / other... translations present in i18n/
-defaultContentLanguage = "en"           # Default language to use
-[languages.en]
-  languageCode = "en"
+defaultContentLanguage = "zh-cn"           # Default language to use
+[languages.zh-cn]
+  languageCode = "zh-cn"
 
 [author]                  # essential                     # 必需
   name = "Reoaiq"
@@ -54,11 +54,11 @@ defaultContentLanguage = "en"           # Default language to use
   weight = 30
   identifier = "tags"
   url = "/tags/"
-#[[menu.main]]
- # name = "Categories"
- # weight = 40
- # identifier = "categories"
- # url = "/categories/"
+[[menu.main]]
+  name = "About"
+  weight = 40
+  identifier = "About"
+  url = "/about/"
 #[[menu.main]]
  # name = "external-link"
   #weight = 50

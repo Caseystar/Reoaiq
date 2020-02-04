@@ -1,236 +1,343 @@
 baseURL = "https://reoaiq.netlify.com/"
+# 网站语言
+languageCode = "zh"
+# [en, zh, ...] 设定主题的国际化
+defaultContentLanguage = "zh"
+# 网站标题
 title = "Reoaiq"
-enableRobotsTXT = true
+# 主题
+theme = "LoveIt"
+# 是否使用 git 信息来生成文章的上次修改时间
+enableGitInfo = true
+# 是否包括中日韩文字
+hasCJKLanguage = true
+# 默认每页列表显示的文章数目
+paginate = 12
+# 是否使用 emoji 代码
 enableEmoji = true
-theme = "jane"
+# 是否使用 robots.txt
+enableRobotsTXT = true
+# [UA-XXXXXXXX-X] 谷歌分析代号
+googleAnalytics = ""
+# 版权描述，仅仅用于 SEO
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+# 日期格式
+dateFormatToUse = "2006-01-02"
 
-hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
-paginate = 5              # Number of articles displayed on the homepage # 首页每页显示的文章数
-rssLimit = 20             # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
-disqusShortname = ""      # disqus_shortname
-googleAnalytics = ""      # UA-XXXXXXXX-X
-copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
-enableGitInfo = true      # use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。
-uglyURLs = false         # more info: https://gohugo.io/content-management/urls/#ugly-urls
+# Hugo 解析文档的配置
+[markup]
+  # 代码高亮设置 (https://gohugo.io/content-management/syntax-highlighting)
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    style = "monokai"
+    tabWidth = 4
+  # Goldmark 是 Hugo 0.60 以来的默认 Markdown 解析库
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+      # 是否在文档中直接使用 HTML 标签
+      unsafe = true
+  # 目录设置
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6
 
-# Highlight options.
-# See https://gohugo.io/content-management/syntax-highlighting/
-PygmentsCodeFences = true # Enable syntax highlighting with GitHub flavoured code fences
-PygmentsUseClasses = true # Use CSS classes to format highlighted code
-PygmentsCodefencesGuessSyntax = true
-PygmentsOptions = "linenos=table"
-
-# Enable author pages
-#[taxonomies]
-#  author = "author"
-#  tag = "tags"
-#  category = "categories"
-
-# language support # en / zh-cn / other... translations present in i18n/
-defaultContentLanguage = "zh-cn"           # Default language to use
-[languages.zh-cn]
-  languageCode = "zh-cn"
-
-[author]                  # essential                     # 必需
+# 作者信息
+[author]
   name = "Reoaiq"
+  link = ""
 
-[sitemap]                 # essential                     # 必需
+# 网站地图信息
+[sitemap]
   changefreq = "weekly"
-  priority = 0.5
   filename = "sitemap.xml"
+  priority = 0.5
 
-[[menu.main]]             # config your menu              # 配置目录
-  name = "Home"
-  weight = 10
-  identifier = "home"
-  url = "/"
-[[menu.main]]
-  name = "Archives"
-  weight = 20
-  identifier = "archives"
-  url = "/post/"
-[[menu.main]]
-  name = "Tags"
-  weight = 30
-  identifier = "tags"
-  url = "/tags/"
-[[menu.main]]
-  name = "About"
-  weight = 40
-  identifier = "About"
-  url = "/about/"
-#[[menu.main]]
- # name = "external-link"
-  #weight = 50
-  #url = "https://gohugo.io"
+# Permalinks 信息 (https://gohugo.io/content-management/urls/#permalinks)
+[Permalinks]
+  posts = ":year/:month/:filename"
 
+# 菜单信息
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "posts"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "tags"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "categories"
+    name = "分类"
+    url = "categories"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "about"
+    weight = 4
+
+  #[[menu.main]]
+   # identifier = "en"
+   # pre = '<i class="fas fa-language fa-fw"></i>'
+   # name = ""
+   # title = "English"
+   # url = "https://hugo-loveit-en.netlify.com"
+   # weight = 5
 
 [params]
-  debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
-  since = "2020"            # Site creation time          # 站点建立时间
-  homeFullContent = false   # if false, show post summaries on home page. Othewise show full content.
-  rssFullContent = true     # if false, Rss feed instead of the summary
-  mainSections = ["post"]
+  # LoveIt 主题版本
+  version = "0.1.X"
+  # 网站描述
+  description = "Reoaiq's Blog"
+  # 网站关键词
+  keywords = ["blog", "hugo"]
 
-  # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
-  logoTitle = "Reoaiq"        # default: the title value    # 默认值: 上面设置的title值
-  keywords = ["BDSM", "BLOG","Reoaiq"]
-  description = "Reoaiq's space."
+  # 主页信息设置
+  ## [post, other] 主页模式
+  home_mode = "post"
+  ## 主页在 post 模式下每页 post 显示数量
+  home_paginate = 6
+  ## 主页显示头像的 URL
+  avatar = "images/avatar.png"
+  ## 主页显示的网站副标题
+  subtitle = "Reoaiq's Space."
 
-  # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
-  archive-paginate = 10
+  # 在文章页面是否使用分享功能
+  socialShare = true
 
-  # paginate style, default use numbered pagination links
-  # if true, use original "Previous" and "Next" links.
-  # paginateOriginalStyle = true
+  # 页面底部版权信息设置
+  ## 网站创立年份
+  since = 2020
+  ## ICP 备案信息，仅在中国使用 (允许使用 HTML 格式)
+  icp = ""
+  ## 许可协议信息 (允许使用 HTML 格式)
+  license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
-  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
-  dateFormatToUse = "2006-01-02"
+  # 用于生成文章上次修改时间的公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
+  gitRepo = "https://github.com/Caseystar/Reoaiq.git"
 
-  # show word count and read time ?                       # 是否显示字数统计与阅读时间
-  moreMeta = true
-
-  # show language chooser in menu
-  showMenuLanguageChooser = true
-
-  showAuthorInfo = true # show author info below the article
-
-  # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
-  # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
-  toc = true                                                                            # 是否开启目录
-  photoswipe = true         # see https://github.com/dimsemenov/PhotoSwipe            # 是否启用PhotoSwipe（图片可点击）
-  bootcdn = false           # In china. @Deprecated: use [params.publicCDN]             # 是否使用bootcdn(@Deprecated: 请使用[params.publicCDN])
-  mathjax = false           # see https://www.mathjax.org/                              # 是否使用mathjax（数学公式）
-  katex = false             # see https://github.com/KaTeX/KaTeX
-  contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
-
-  changyanAppid = ""        # Changyan app id             # 畅言
-  changyanAppkey = ""       # Changyan app key
-  tencent_analytics = ""    # Tencent Analytics
-  baidu_push = false        # baidu push                  # 百度
-  baidu_analytics = ""      # Baidu Analytics
-  baidu_verification = ""   # Baidu Verification
-  google_verification = ""  # Google_Verification         # 谷歌
-
-  # Link custom CSS and JS assets
-  #   (relative to /static/css and /static/js respectively)
-  customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
-  customJS = []             # if ['custom.js'], load '/static/js/custom.js' file
-
-  # enable 'fork me on github', see https://blog.github.com/2008-12-19-github-ribbons/
-  # forkMeOnGithub = "https://github.com/xianmin/hugo-theme-jane"
-
-  # add custom info on the footer.   # 添加备案信息
-  # customFooter = "京ICP备10000000号-1"
-
-[markup.goldmark.renderer]
-unsafe= true
-
-  [params.publicCDN]        # load these files from public cdn                          # 启用公共CDN，需自行定义
+  # 数学公式 (KaTeX https://katex.org/)
+  [params.math]
     enable = true
-    jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
-    slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
-    gitmentJS = '<script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>'
-    gitmentCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">'
-    photoswipe = '<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>'
-    photoswipeUI = '<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>'
-    photoswipeCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">'
-    photoswipeSKIN = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">'
+    block_left_delimiter = ""
+    block_right_delimiter = ""
+    inline_left_delimiter = "$"
+    inline_right_delimiter = "$"
+    # KaTeX 插件 copy_tex
+    copy_tex = true
+    # KaTeX 插件 mhchem
+    mhchem = true
 
-  [params.utteranc]         # utteranc is a comment system based on GitHub issues. see https://utteranc.es
-    enable = false
-    repo = "xianmin/comments-for-hugo-theme-jane"    # The repo to store comments
-    issueTerm = "pathname"
+  # 是否在文章页面显示原始 Markdown 文档链接
+  linkToMarkdown = false
 
-  [params.gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
-    owner = ""              # Your GitHub ID
-    repo = ""               # The repo to store comments
-    clientId = ""           # Your client ID
-    clientSecret = ""       # Your client secret
+  # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
+  google_verification = ""
+  bing_verification = ""
+  yandex_verification = ""
+  pinterest_verification = ""
+  baidu_verification = ""
 
-  [params.livere]          	#LiveRe comment. see https://www.livere.com/
-	  uid = ""
+  # CSS 和 JS 文件的 CDN 设置
+  [params.cdn]
+    ## 例如 '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css" integrity="sha256-fdcFNFiBMrNfWL6OcAGQz6jDgNTRxnrLEd4vJYFWScE=" crossorigin="anonymous">'
+    fontawesome_free_css = ''
+    animate_css = ''
+    gitalk_css = ''
+    gitalk_js = ''
+    valine_js = ''
+    jquery_js = ''
+    lazysizes_js = ''
+    smooth_scroll_js = ''
+    katex_css = ''
+    katex_js = ''
+    katex_auto_render_js = ''
+    katex_copy_tex_css = ''
+    katex_copy_tex_js = ''
+    katex_mhchem_js = ''
+    mermaid_js = ''
+    echarts_js = ''
+    echarts_macarons_js = ''
+    typeit_js = ''
+    jquery_countdown_js = ''
+    aplayer_css = ''
+    aplayer_js = ''
+    meting_js = ''
 
-  # Valine.
-  # You can get your appid and appkey from https://leancloud.cn
-  # more info please open https://valine.js.org
+  # Gravatar 信息，用于优先在主页显示的头像
+  [params.gravatar]
+    email = ""
+
+  # 主页的社交信息设置
+  [params.social]
+    GitHub = "xxxx"
+    Linkedin = "xxxx"
+    Twitter = "xxxx"
+    #Instagram = "xxxx"
+    Email = "xxxx@outlook.com"
+    Facebook = "xxxx"
+    Telegram = "xxxx"
+    #Medium = "xxxx"
+    #Gitlab = "xxxx"
+    #Youtubelegacy = "xxxx"
+    #Youtubecustom = "xxxx"
+    #Youtubechannel = "xxxx"
+    #Tumblr ="xxxx"
+    #Quora = "xxxx"
+    #Keybase = "xxxx"
+    #Pinterest = "xxxx"
+    #Reddit = "xxxx"
+    #Codepen = "xxxx"
+    #FreeCodeCamp = "xxxx"
+    #Bitbucket = "xxxx"
+    #Stackoverflow = "xxxx"
+    #Weibo = "xxxx"
+    #Odnoklassniki = "xxxx"
+    #VKontakte = "xxxx"
+    #Flickr = "xxxx"
+    #Xing = "xxxx"
+    #Snapchat = "xxxx"
+    #Soundcloud = "xxxx"
+    #Spotify = "xxxx"
+    #Bandcamp = "xxxx"
+    #Paypal = "xxxx"
+    #Fivehundredpx = "xxxx"
+    #Mix = "xxxx"
+    #Goodreads = "xxxx"
+    #Lastfm = "xxxx"
+    #Foursquare = "xxxx"
+    #Hackernews = "xxxx"
+    #Kickstarter = "xxxx"
+    #Patreon = "xxxx"
+    #Steam = "xxxx"
+    #Twitch = "xxxx"
+    #Strava = "xxxx"
+    #Skype = "xxxx"
+    #Whatsapp = "xxxx"
+    #Zhihu = "xxxx"
+    #Douban = "xxxx"
+    #Angellist = "xxxx"
+    #Slidershare = "xxxx"
+    #Jsfiddle = "xxxx"
+    #Deviantart = "xxxx"
+    #Behance = "xxxx"
+    #Dribble = "xxxx"
+    #Wordpress = "xxxx"
+    #Vine = "xxxx"
+    #Googlescholar = "xxxx"
+    #Researchgate = "xxxx"
+    #Mastodon = "xxxx"
+    #Thingiverse = "xxxx"
+    #Devto = "xxxx"
+
+  # 文章页面的分享信息设置
+  [params.share]
+    enable = true
+    Twitter = true
+    #Facebook = true 
+    #Reddit = true
+    #Linkedin = true
+    #Pinterest = true
+    #HackerNews = true
+    #Mix = true
+    #Tumblr = true
+    #VKontakte = true
+    Weibo = true
+
+  # 出版者信息，仅用于 SEO
+  [params.publisher]
+    name = "Reoaiq"
+    [params.publisher.logo]
+      url = "logo.png"
+      width = 127
+      height = 40
+
+  # 网站图标信息，仅用于 SEO
+  [params.logo]
+    url = "logo.png"
+    width = 127
+    height = 40
+
+  #  网站图标信息，仅用于 SEO
+  [params.image]
+    url = "cover.png"
+    width = 800
+    height = 600
+
+  # Disqus 评论系统设置 (https://disqus.com/)
+  [params.disqus]
+    # Disqus 的用户名，用来在文章中启用 Disqus 评论系统
+    shortname = ""
+
+  # Gittalk 评论系统设置 (https://github.com/gitalk/gitalk)
+  [params.gitalk]
+    owner = ""
+    repo = ""
+    clientId = ""
+    clientSecret = ""
+
+  # Valine 评论系统设置 (https://github.com/xCss/Valine)
   [params.valine]
-    enable = false
-    appId = ''
-    appKey = ''
-    notify = false  # If you are using valine-admin(https://github.com/DesertsP/Valine-Admin) to notify users, do NOT enable this.
-    verify = false # Verification code
-    avatar = 'mm'
-    placeholder = ''
-
-  [params.search.google]    # google custom search, see https://cse.google.com
-    enable = false
-    id = "002186711602136249422:q1gkomof_em"
-    title = "Search"
-
-  [params.reward]                                         # 文章打赏
-    enable = false
-    wechat = "/path/to/your/wechat-qr-code.png"           # 微信二维码
-    alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
-
-  [params.counter.busuanzi]  # a Chinese visitor counter  # 不蒜子计数器
-    enable = true
-
-  [params.counter.leancloud]  # Chinese leancloud visitor counter  # leancloud 计数器
     enable = false
     appId = ""
     appKey = ""
+    notify = false
+    verify = true
+    avatar = "mp"
+    placeholder = "你的评论 ..."
+    visitor = true
+    recordIP = true
 
-  [params.commentCount.disqus] # show counts of comments for Disqus
+  # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
+  [params.facebook]
     enable = false
+    width = "100%"
+    numPosts = 10
+    appId = ""
+    languageCode = "en_US"
 
-  # use public git repo url to link lastmod git commit, enableGitInfo should be true.
-  # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
-  [params.gitInfo]
-    gitRepo = "https://github.com/Caseystar/Reoaiq"
-    showCommitMessage = true
+# 隐私信息设置 (https://gohugo.io/about/hugo-and-gdpr/)
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
 
-  [params.social]                                         # 社交链接
-    a-email = "mailto:lkxxtc@163.com"
-    # b-stack-overflow = "http://localhost:1313"
-    # c-twitter = "http://localhost:1313"
-    # d-facebook = "http://localhost:1313"
-    # e-linkedin = "http://localhost:1313"
-    # f-google = "http://localhost:1313"
-    g-github = "http://localhost:1313"
-    h-weibo = "http://localhost:1313"
-    # i-zhihu = "http://localhost:1313"
-    # j-douban = "http://localhost:1313"
-    # k-pocket = "http://localhost:1313"
-    # l-tumblr = "http://localhost:1313"
-    # m-instagram = "http://localhost:1313"
-    # n-gitlab = "http://localhost:1313"
-    # o-goodreads = "http://localhost:1313"
-    # p-coding = "http://localhost:1313"
-    # q-bilibili = "http://localhost:1313"
-    # r-codeforces = "http://localhost:1313"
-    # s-mastodon = "http://localhost:1313"
+  [privacy.youtube]
+    privacyEnhanced = true
 
-# jsonfeed support
-# more information: https://github.com/xianmin/hugo-theme-jane/issues/23
-# to have json output it's necessary to uncomment this block of code and create a index.jsonfeed.json template, using hugo template specs
-# [outputs]
-#   home = ["html", "jsonfeed","rss"]
-#   page = ["html"]
-#
-# [outputFormats]
-# [outputFormats.jsonfeed]
-#   mediaType = "application/json"
-#   baseName = "feed"
-#   isPlainText = true
+# 用于输出 Markdown 格式文档的设置
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["md"]
 
+# 用于输出 Markdown 格式文档的设置
+[outputFormats.MarkDown]
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
 
-# multilingual support example
-# [langusges]
-# [languages.en]
-#   title = "Jane - A simple theme for Hugo"
-#   weight = 1
-# [languages.zh-cn]
-#   title = "Jane —— 一个简洁的 Hugo 主题"
-#   weight = 2
- 
+# 用于 Hugo 输出文档的设置
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]

@@ -6,8 +6,7 @@ comment: false
 mathjax: false
 ---
 
-
-## <center>名宠有主，请勿靠近</center>
+# <center>名宠有主，请勿靠近</center>
 
 
 人在上海，有主
@@ -33,17 +32,6 @@ mathjax: false
 * <font color=#FFC125>曾经</font>：山区支教、话剧音效和灯光（参与过5、6部话剧吧，队伍很正规但是并不是著名的话剧团队）、大学带过协会当了一年多会长。
 * <font color=#FFC125>海军旗语</font>（算是我的一个比较与众不同的技能了吧）
 * <font color=#FFC125>有自己的公众号</font>但是平时都帮大学的官方号做，所以也暂时搁置了。
-
-
-
-
-
-<font face="宋体">我是宋体字</font>
-
-size为1：<font size="6">size为6</font><br />
-
-<font color=#FF0000>  字体改成红色了 </font>
-
 
 
 

@@ -279,7 +279,7 @@ dateFormatToUse = "2006-01-02"
 
   #  网站图标信息，仅用于 SEO
   [params.image]
-    url = "cover.png"
+    url = "logo.png"
     width = 800
     height = 600
 
